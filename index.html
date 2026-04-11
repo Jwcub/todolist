@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/src/css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+        <title>Reminder app</title>
+    </head>
+    <body>
+  
+        <header>
+            <h1>Mina påminnelser</h1>
+            <p class="subheading">En att göra lista</p>
+        </header>
+
+        <main>
+            <form id="add-todo">
+                <input type="text" id="task" placeholder="Lägg till påminnelse">
+                <select type="number" id="priority">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <button type="submit">+</button>
+            </form>
+            
+            <h2>Uppgifter:</h2>
+            <ul id="tasks">
+                
+            </ul>
+
+        </main>
+
+        <script type="module" src="/src/js/main.ts"></script>
+                
+    </body>
+</html>
