@@ -8,8 +8,9 @@ export class TodoList {
         this.todos = LocalStorageUtil.loadTodos();
     }
 
-    public addTodo(todo: Todo): void {
-        this.todos.push(todo);
+    public addTodo(todos: Todo): void {
+        this.todos.push(todos);
+        LocalStorageUtil.saveTodos(this.todos);
     }
 
     public getTodos(): Todo[] {
