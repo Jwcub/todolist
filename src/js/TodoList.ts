@@ -16,4 +16,9 @@ export class TodoList {
     public getTodos(): Todo[] {
         return this.todos;
     }
+
+    public deleteTodos(task: string): void {
+        this.todos = this.todos.filter(c => c.task !== task);
+        LocalStorageUtil.saveTodos(this.todos)
+    }
 }

@@ -37,9 +37,24 @@ function renderTodos(): void {
         tasks.forEach((task) => {
             const liEl = document.createElement("li");
             liEl. innerHTML = task.task;
+            
+
+            const deleteSpan = document.createElement('span');
+            deleteSpan.textContent = ' Delete';
+            deleteSpan.className = 'delete-button';
+
+            deleteSpan.addEventListener('click', () => deleteTodo(task.task));
+            liEl.appendChild(deleteSpan);
+
             taskList.appendChild(liEl);
         });
     }
+}
+
+function deleteTodo(task: string): void {
+   console.log("Tar bort kontakt med email:", task); // 🔍 Testlogg
+    todoList.deleteTodos(task);
+    renderTodos();
 }
 
 renderTodos()
