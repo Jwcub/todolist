@@ -1,34 +1,44 @@
-interface Todo {
-    task: string;
-    priority: number;
-    completed: boolean;
-}
+import { Todo } from "./Todo";
+import { TodoList } from "./TodoList";
 
-class todoList implements Todo {
+const todoList = new TodoList();
 
-   
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("todo-form")! as HTMLFormElement;
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        addTodo();
+    });
+});
 
-    todos: Todo[] = []; 
-    addTodo(task: string, priority: number):boolean {
-        if(task && priority)
-        return true;
+function addTodo(): void {
+    const taskInput = document.getElementById("task") as HTMLInputElement;
+    const priorityInput = document.getElementById("priority") as HTMLInputElement;
+
+    const task = taskInput.value;
+    const taskPriority = parseInt(priorityInput.value);
+    const completed = false;
+
+    if(task && taskPriority) {
+        const newTodo = new Todo(task, taskPriority, completed);
+        todoList.addTodo(newTodo);
+        taskInput.value = "";
+        renderTodos();
     }
 }
 
+function renderTodos(): void {
+    const tasks = todoList.getTodos();
+    const taskList = document.getElementById("tasks") as HTMLUListElement;
 
+    if(taskList) {
+        taskList.innerHTML = "";
 
-
-
-
-
- /*
-    task: string;
-    priority: number;
-    completed: boolean;
-
-    constructor(task: string, priority: number, completed: boolean) {
-        this.task = task;
-        this.priority = priority;
-        this.completed = completed;
+        tasks.forEach((task) => {
+            const liEl = document.createElement("li");
+            liEl. innerHTML = task.task;
+            taskList.appendChild(liEl);
+        });
     }
-    */
+}
+

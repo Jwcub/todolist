@@ -40,8 +40,12 @@ main {
 }
 
 input {
-        width: 100%;
-        padding: 10px 14px;
+    width: 80%;
+    padding: 10px 14px;
+}
+
+section {
+    padding: 10px 14px;
 }
 
 button {
