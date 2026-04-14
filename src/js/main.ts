@@ -38,7 +38,6 @@ function renderTodos(): void {
 
     //Sortera uppgifter efter prioritet
     tasks.sort((a, b) => a.priority - b.priority);
-    console.log(tasks);
 
     if(taskList) {
         taskList.innerHTML = "";
