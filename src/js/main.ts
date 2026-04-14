@@ -1,4 +1,3 @@
-import { Todo } from "./Todo";
 import { TodoList } from "./TodoList";
 
 // Skapar nytt objekt, todoList
@@ -18,16 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
 function addTodo(): void {
     const taskInput = document.getElementById("task") as HTMLInputElement;
     const priorityInput = document.getElementById("priority") as HTMLInputElement;
+    const errorMessageEl = document.querySelector(".error-message") as HTMLElement;
 
     const task = taskInput.value;
     const taskPriority = parseInt(priorityInput.value);
-    const completed = false;
 
-    if(task && taskPriority) {
-        const newTodo = new Todo(task, taskPriority, completed);
-        todoList.addTodo(newTodo);
+    if(todoList.addTodo(task, taskPriority)) {
+        errorMessageEl.innerText = "";
         taskInput.value = "";
         renderTodos();
+    } else {
+        errorMessageEl.innerText = "Uppgiften kunde inte läggas till";
     }
 }
 

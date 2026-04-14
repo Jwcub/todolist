@@ -7,10 +7,11 @@ export class TodoList {
         this.todos = this.loadTodos();
     }
 
-    public addTodo(todo: Todo): boolean {
-
-        if (todo.task.length >= 2 && todo.priority > 0 && todo.priority < 4) {
-            this.todos.push(todo);
+    public addTodo(task: string, taskPriority: number): boolean {
+        const newTodo = new Todo(task, taskPriority, false);
+        
+        if (task.length >= 2 && taskPriority > 0 && taskPriority < 4) {
+            this.todos.push(newTodo);
             this.saveTodos(this.todos);
             return true;
         } else return false;
@@ -39,7 +40,7 @@ export class TodoList {
     }
 
     public loadTodos(): Todo[] {
-        const storedTodos = localStorage.getItem('tasks')
+        const storedTodos = localStorage.getItem("tasks");
 
         if(storedTodos) {
             const rawData = JSON.parse(storedTodos)
