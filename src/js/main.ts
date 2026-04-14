@@ -36,25 +36,36 @@ function renderTodos(): void {
 
         tasks.forEach((task) => {
             const liEl = document.createElement("li");
-            liEl. innerHTML = task.task;
-            
+            const textEl = document.createElement("span");
+            textEl.classList = "task-text";
+            textEl.innerText = task.task;
+            liEl.appendChild(textEl);
 
-            const deleteSpan = document.createElement('span');
-            deleteSpan.textContent = ' Delete';
-            deleteSpan.className = 'delete-button';
+            const taskIndex = tasks.indexOf(task);
 
-            deleteSpan.addEventListener('click', () => deleteTodo(task.task));
+            const deleteSpan = document.createElement("span");
+            deleteSpan.className = "material-symbols-outlined delete-btn";
+            deleteSpan.innerHTML = "close";
+
+            deleteSpan.addEventListener("click", () => {
+                todoList.deleteTodos(task.task)
+                renderTodos();
+            });
+
             liEl.appendChild(deleteSpan);
+
+            if(task.completed === true) {
+                liEl.classList.toggle('checked');
+            }
+            
+            liEl.addEventListener("click", () => {
+                liEl.classList.toggle('checked');
+                todoList.markTodoCompleted(taskIndex);
+            });
 
             taskList.appendChild(liEl);
         });
     }
 }
 
-function deleteTodo(task: string): void {
-   console.log("Tar bort kontakt med email:", task); // 🔍 Testlogg
-    todoList.deleteTodos(task);
-    renderTodos();
-}
-
-renderTodos()
+renderTodos();

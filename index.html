@@ -7,6 +7,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
+
         <title>Reminder app</title>
     </head>
     <body>
@@ -18,12 +21,16 @@
 
         <main>
             <form id="todo-form">
+                <label class="form-label labelw50">Påminnelse
                 <input type="text" id="task" placeholder="Lägg till påminnelse">
-                <select type="number" id="priority">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
+                </label>
+                <label class="form-label labelw25">Priotitet
+                    <select type="number" id="priority">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </label>
                 <button type="submit">+</button>
             </form>
             
