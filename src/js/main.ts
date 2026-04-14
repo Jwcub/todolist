@@ -31,6 +31,10 @@ function renderTodos(): void {
     const tasks = todoList.getTodos();
     const taskList = document.getElementById("tasks") as HTMLUListElement;
 
+    //Sortera uppgifter efter prioritet
+    tasks.sort((a, b) => a.priority - b.priority);
+    console.log(tasks);
+
     if(taskList) {
         taskList.innerHTML = "";
 
