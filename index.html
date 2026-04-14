@@ -10,36 +10,36 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
 
-        <title>Reminder app</title>
+        <title>Bocka av</title>
     </head>
     <body>
-  
-        <header>
-            <h1>Mina påminnelser</h1>
-            <p class="subheading">En att göra lista</p>
-        </header>
+        <div class="wrapper">
 
-        <main>
-            <form id="todo-form">
-                <label class="form-label labelw50">Påminnelse
-                <input type="text" id="task" placeholder="Lägg till påminnelse">
-                </label>
-                <label class="form-label labelw25">Prioritet
-                    <select type="number" id="priority">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </label>
-                <button type="submit">+</button>
-            </form>
-            
-            <h2>Uppgifter:</h2>
-            <ul id="tasks">
+            <header>
+                <h1>Bocka av</h1>
+                <p class="subheading">En att göra lista</p>
+            </header>
+
+            <main>
+                <form id="todo-form">
+                    <label class="form-label labelw50">Påminnelse
+                    <input type="text" id="task" placeholder="Lägg till påminnelse">
+                    </label>
+                    <label class="form-label labelw25">Prioritet
+                        <select type="number" id="priority">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </label>
+                    <button type="submit">+</button>
+                </form>
                 
-            </ul>
-
-        </main>
+                <h2>Uppgifter:</h2>
+                <ul id="tasks">
+                </ul>
+            </main>
+        </div>
 
         <script type="module" src="/src/js/main.ts"></script>
     </body>

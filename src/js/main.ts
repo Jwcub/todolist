@@ -1,8 +1,11 @@
 import { Todo } from "./Todo";
 import { TodoList } from "./TodoList";
 
+// Skapar nytt objekt, todoList
 const todoList = new TodoList();
 
+
+// Lägger till eventlyssnare på "+"knapp
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("todo-form")! as HTMLFormElement;
     form.addEventListener("submit", (event) => {
@@ -11,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Funktionalitet för att lägga till ny påminnelse
 function addTodo(): void {
     const taskInput = document.getElementById("task") as HTMLInputElement;
     const priorityInput = document.getElementById("priority") as HTMLInputElement;
@@ -27,6 +31,7 @@ function addTodo(): void {
     }
 }
 
+// Skriver ut att påminnelser
 function renderTodos(): void {
     const tasks = todoList.getTodos();
     const taskList = document.getElementById("tasks") as HTMLUListElement;
@@ -45,8 +50,7 @@ function renderTodos(): void {
             textEl.innerText = task.task;
             liEl.appendChild(textEl);
 
-            const taskIndex = tasks.indexOf(task);
-
+            // Knapp för att radera påminnelse
             const deleteSpan = document.createElement("span");
             deleteSpan.className = "material-symbols-outlined delete-btn";
             deleteSpan.innerHTML = "close";
@@ -58,6 +62,9 @@ function renderTodos(): void {
 
             liEl.appendChild(deleteSpan);
 
+            // Markera påminnelser som slutförda
+            const taskIndex = tasks.indexOf(task);
+
             if(task.completed === true) {
                 liEl.classList.toggle('checked');
             }
@@ -67,6 +74,7 @@ function renderTodos(): void {
                 todoList.markTodoCompleted(taskIndex);
             });
 
+            // Lägger till element i DOM
             taskList.appendChild(liEl);
         });
     }

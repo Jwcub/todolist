@@ -7,9 +7,13 @@ export class TodoList {
         this.todos = this.loadTodos();
     }
 
-    public addTodo(todo: Todo): void {
-        this.todos.push(todo);
-        this.saveTodos(this.todos);
+    public addTodo(todo: Todo): boolean {
+
+        if (todo.task.length >= 2 && todo.priority > 0 && todo.priority < 4) {
+            this.todos.push(todo);
+            this.saveTodos(this.todos);
+            return true;
+        } else return false;
     }
 
     public getTodos(): Todo[] {
@@ -22,7 +26,6 @@ export class TodoList {
         } else if(this.todos[todoIndex].completed === true) {
             this.todos[todoIndex].completed = false;
         }
-        
         this.saveTodos(this.todos);
     }
 
