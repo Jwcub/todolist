@@ -9,4 +9,5 @@ Det här projektet är en enkel att göra-applikation byggd med TypeScript. Syft
 - Spara och ladda uppgifter automatiskt med LocalStorage
 - Responsiv design som fungerar på både mobil och dator
 
-**Publicerad på**
+**Publicerad**
+https://bocka-av.netlify.app/
